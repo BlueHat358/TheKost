@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_bg">#2F55A4</color>
+    <color name="color_btn_login">#194DC5</color>
+    <color name="color_btn_topUp">#F9C9FB</color>
+    <color name="color_btn_harga">#557BD2</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
+    <color name="color_ungu_email">#194DC5</color>
+    <color name="color_ungu_name">#2F55A4</color>
+    <color name="color_title">#4CEF8D</color>
+    <color name="color_cash">#A8F50D</color>
+    <color name="color_content_telp">#A8A8A8</color>
+    <color name="color_fragment_active">#D2DFFC</color>
+    <color name="color_fragment_active_line">#557BD2</color>
+    <color name="color_signOut">#FF4600</color>
+</resources>

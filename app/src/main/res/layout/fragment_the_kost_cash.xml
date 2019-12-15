@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pembayaran.TheKostCashFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:paddingTop="15dp"
+            android:paddingLeft="30dp"
+            android:paddingBottom="15dp"
+            android:id="@+id/action_bar_activity"
+            >
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:src="@drawable/ic_back_arrow_black"
+                android:id="@+id/content_back_kostcash"
+                android:layout_marginRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title_content_fragment"
+                android:text="Kost Cash"
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/color_black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_style"
+                android:padding="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo Kost Cash"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/color_black"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Rp 50.000.000"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_saldo_kostcash_pembayaran"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/color_black"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo Kost Cash kamu akan terpotong senilai:"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_total_kostcash"
+                    android:text="Rp. 1.000.000"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    android:layout_marginTop="25dp"
+                    android:textAlignment="center"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/color_black"
+                    android:layout_marginTop="20dp"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat anda mendapatkan bonus potongan Rp. 3000 pada pembelian berikutnya."
+                android:layout_marginTop="50dp"
+                android:textSize="17sp"
+                android:id="@+id/tv_bonus_kostcash"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        >
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Lanjut"
+            android:textAllCaps="false"
+            android:background="@color/color_ungu_name"
+            android:textColor="@color/color_white"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btn_lanjut_kostcash"
+            />
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">TheKost</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="nama_galon">
+        <item>AQUA</item>
+        <item>PRIUS</item>
+        <item>FROZEN</item>
+    </string-array>
+
+    <string-array name="harga_galon">
+        <item>Rp. 30.000</item>
+        <item>Rp. 25.500</item>
+        <item>Rp. 20.000</item>
+    </string-array>
+
+    <string-array name="harga_galon_isiUlang">
+        <item>Rp. 6.000</item>
+        <item>Rp. 5.500</item>
+        <item>Rp. 4.000</item>
+    </string-array>
+
+    <string-array name="nama_gas">
+        <item>ELPIJI 3KG</item>
+        <item>BRIGHT 5.5KG</item>
+        <item>ELPIJI 12KG</item>
+    </string-array>
+
+    <string-array name="harga_gas">
+        <item>Rp. 125.000</item>
+        <item>Rp. 325.500</item>
+        <item>Rp. 425.000</item>
+    </string-array>
+
+    <string-array name="harga_gas_isiUlang">
+        <item>Rp. 20.000</item>
+        <item>Rp. 70.000</item>
+        <item>Rp. 130.000</item>
+    </string-array>
+
+    <string-array name="gas_image">
+        <item>@drawable/gas_3kg</item>
+        <item>@drawable/gas_5kg</item>
+        <item>@drawable/gas_12kg</item>
+    </string-array>
+
+    <integer-array name="galon_image">
+        <item>-700065</item>
+        <item>-700101</item>
+        <item>-700015</item>
+    </integer-array>
+</resources>

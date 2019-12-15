@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <gradient
+        android:startColor="@color/color_btn_harga"
+        android:endColor="@color/color_btn_harga"
+        android:centerColor="@color/color_btn_harga"
+        />
+
+    <corners
+        android:radius="20dp"
+        />
+
+</shape>

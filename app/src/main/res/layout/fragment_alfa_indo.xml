@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pembayaran.AlfaIndoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:paddingTop="15dp"
+            android:paddingLeft="30dp"
+            android:paddingBottom="15dp"
+            android:id="@+id/action_bar_activity"
+            >
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:src="@drawable/ic_back_arrow_black"
+                android:id="@+id/content_back_alfaindo"
+                android:layout_marginRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_title_alfaindo"
+                android:text="Indomaret"
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/color_black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:gravity="center_horizontal"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="25dp"
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Segera selesaikan pembayaran sebelum stok habis"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_style"
+                android:padding="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LAKUKAN PEMBAYARAN DALAM WAKTU"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="23 Jam : 50 Menit : 23 Detik"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_time"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/color_black"
+                    android:layout_marginTop="50dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kode Pembayaran"
+                    android:layout_marginTop="30dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TKI4724842447"
+                    android:layout_marginTop="30dp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/color_black"
+                    android:layout_marginTop="30dp"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Tunjukkan kode pembayaran ke kasir dan lakukan pembayaran senilai :"
+                android:textSize="17sp"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Rp. 1.000.000"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_total_alfaindo"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        >
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Selesai"
+            android:textAllCaps="false"
+            android:background="@color/color_ungu_name"
+            android:textColor="@color/color_white"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btn_selesai_alfindo"
+            />
+    </RelativeLayout>
+
+</FrameLayout>

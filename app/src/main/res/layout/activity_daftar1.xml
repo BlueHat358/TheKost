@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Daftar.DaftarActivity1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+        android:id="@+id/action_bar_activity"
+        >
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/ic_back_arrow_black"
+            android:id="@+id/btn_back_daftar1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar"
+            android:layout_marginLeft="30dp"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="600dp"
+        android:minWidth="450dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/action_bar_activity"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ungu_email"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="33dp"
+            android:orientation="vertical"
+            android:alpha="0.6"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Email Kamu"
+                android:textColor="@color/color_white"
+                android:textSize="12sp"
+                android:layout_marginBottom="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_email_kamu"
+                android:textColor="@color/color_white"
+                android:text="Nama_Kamu@Email.com"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="33dp"
+            android:layout_marginTop="30dp"
+            android:paddingRight="33dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_style"
+                android:hint="Pakai nama asli kamu ya :)"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_marginTop="20dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ungu_name"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:alpha="0.6"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TheKost.com/"
+                        android:textColor="@color/color_white"/>
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_style"
+                    android:textSize="14dp"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buat Password"
+                android:layout_marginTop="20dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_style"
+                android:hint="Jangan pakai password berurutan :)"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Min. 6 karakter gabungan huruf dan angka"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konfirmasi Password"
+                android:layout_marginTop="20dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_style"
+                android:hint="Masukkan passwordnya lagi ya :)"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:layout_marginTop="20dp"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki-Laki"
+                    android:id="@+id/rb_laki"
+                    android:checked="true"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan"
+                    android:id="@+id/rb_perem"
+                    android:layout_marginLeft="40dp"
+                    />
+            </RadioGroup>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_ungu_name"
+            android:alpha="0.5"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="33dp"
+            android:layout_marginTop="30dp"
+            android:paddingRight="33dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ketentuan"
+                android:textAlignment="center"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Sekarang"
+                android:textAllCaps="false"
+                android:id="@+id/btn_daftar_sekarang_daftarActivity"
+                android:textColor="@color/color_white"
+                android:background="@color/color_ungu_name"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
