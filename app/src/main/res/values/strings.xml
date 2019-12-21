@@ -10,17 +10,17 @@
         <item>FROZEN</item>
     </string-array>
 
-    <string-array name="harga_galon">
-        <item>Rp. 30.000</item>
-        <item>Rp. 25.500</item>
-        <item>Rp. 20.000</item>
-    </string-array>
+    <integer-array name="harga_galon">
+        <item>30000</item>
+        <item>25500</item>
+        <item>20000</item>
+    </integer-array>
 
-    <string-array name="harga_galon_isiUlang">
-        <item>Rp. 6.000</item>
-        <item>Rp. 5.500</item>
-        <item>Rp. 4.000</item>
-    </string-array>
+    <integer-array name="harga_galon_isiUlang">
+        <item>6000</item>
+        <item>5500</item>
+        <item>4000</item>
+    </integer-array>
 
     <string-array name="nama_gas">
         <item>ELPIJI 3KG</item>
@@ -28,17 +28,17 @@
         <item>ELPIJI 12KG</item>
     </string-array>
 
-    <string-array name="harga_gas">
-        <item>Rp. 125.000</item>
-        <item>Rp. 325.500</item>
-        <item>Rp. 425.000</item>
-    </string-array>
+    <integer-array name="harga_gas">
+        <item>125000</item>
+        <item>325500</item>
+        <item>425000</item>
+    </integer-array>
 
-    <string-array name="harga_gas_isiUlang">
-        <item>Rp. 20.000</item>
-        <item>Rp. 70.000</item>
-        <item>Rp. 130.000</item>
-    </string-array>
+    <integer-array name="harga_gas_isiUlang">
+        <item>20000</item>
+        <item>70000</item>
+        <item>130000</item>
+    </integer-array>
 
     <string-array name="gas_image">
         <item>@drawable/gas_3kg</item>

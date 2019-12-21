@@ -1,6 +1,7 @@
 package com.example.thekost.Content;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,10 +19,16 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.thekost.DataPreference;
+import com.example.thekost.Model.tagihan_listrik;
+import com.example.thekost.Pembayaran.MetodePembayaranActivity;
 import com.example.thekost.R;
 
 import java.util.zip.Inflater;
 
+import static com.example.thekost.Utils.PublicClassString.EXTRA_DETAIL_TEMP;
+import static com.example.thekost.Utils.PublicClassString.EXTRA_KEY;
+import static com.example.thekost.Utils.PublicClassString.EXTRA_NAMA_ITEM;
+import static com.example.thekost.Utils.PublicClassString.EXTRA_PRICE;
 import static com.example.thekost.Utils.PublicClassString.STATE;
 
 /**
@@ -30,14 +37,17 @@ import static com.example.thekost.Utils.PublicClassString.STATE;
 public class ListrikFragment extends Fragment {
 
     ToggleButton btn20, btn50, btn100, btn200, btn500, btn1jt;
+    private Button tagihan, lanjut;
+    private ImageView back;
 
     int id, prices[] = {20000, 50000, 100000, 200000, 500000, 1000000},
         price = 0;
 
-    private Button tagihan;
-    private ImageView back;
+    String idPelanggan = "587273028500";
 
     private FragmentTransaction fragmentTransaction;
+
+    tagihan_listrik tagihanListrik;
 
     public ListrikFragment() {
         // Required empty public constructor
@@ -53,6 +63,8 @@ public class ListrikFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
+        tagihanListrik = new tagihan_listrik();
+
         btn20 = view.findViewById(R.id.btnTgl_20);
         btn50 = view.findViewById(R.id.btnTgl_50);
         btn100 = view.findViewById(R.id.btnTgl_100);
@@ -61,6 +73,7 @@ public class ListrikFragment extends Fragment {
         btn1jt = view.findViewById(R.id.btnTgl_1jt);
         back = view.findViewById(R.id.content_back_token);
         tagihan = view.findViewById(R.id.btn_tagihan_listrik);
+        lanjut = view.findViewById(R.id.btn_lanjut_listrik);
 
         SetTextBtn();
 
@@ -72,6 +85,7 @@ public class ListrikFragment extends Fragment {
         btn1jt.setOnClickListener(toggleClick);
         back.setOnClickListener(backClicked);
         tagihan.setOnClickListener(tagihanClicked);
+        lanjut.setOnClickListener(lanjutClicked);
 
         return view;
     }
@@ -109,6 +123,18 @@ public class ListrikFragment extends Fragment {
         btn1jt.setChecked(false);
     }
 
+    private void setTagihanListrik(){
+        tagihanListrik.setTotal(price);
+        tagihanListrik.setNama("Budi Utomo");
+        tagihanListrik.setDaya("R1M / 900");
+        tagihanListrik.setDenda(0);
+        tagihanListrik.setIdPelanggan("587273028500");
+        tagihanListrik.setStandmeter("12576 - 15789");
+        tagihanListrik.setNoRef("0FIN5487525387522");
+        tagihanListrik.setTime("Desember 2019");
+        tagihanListrik.setImage(R.drawable.logo_pln);
+    }
+
     View.OnClickListener toggleClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -120,6 +146,7 @@ public class ListrikFragment extends Fragment {
                     btn20.setChecked(true);
                     btn20.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[0];
+                    setTagihanListrik();
                     break;
                 case R.id.btnTgl_50:
                     SetBGBtn();
@@ -127,6 +154,7 @@ public class ListrikFragment extends Fragment {
                     btn50.setChecked(true);
                     btn50.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[1];
+                    setTagihanListrik();
                     break;
                 case R.id.btnTgl_100:
                     SetBGBtn();
@@ -134,6 +162,7 @@ public class ListrikFragment extends Fragment {
                     btn100.setChecked(true);
                     btn100.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[2];
+                    setTagihanListrik();
                     break;
                 case R.id.btnTgl_200:
                     SetBGBtn();
@@ -141,6 +170,7 @@ public class ListrikFragment extends Fragment {
                     btn200.setChecked(true);
                     btn200.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[3];
+                    setTagihanListrik();
                     break;
                 case R.id.btnTgl_500:
                     SetBGBtn();
@@ -148,6 +178,7 @@ public class ListrikFragment extends Fragment {
                     btn500.setChecked(true);
                     btn500.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[4];
+                    setTagihanListrik();
                     break;
                 case R.id.btnTgl_1jt:
                     SetBGBtn();
@@ -155,6 +186,7 @@ public class ListrikFragment extends Fragment {
                     btn1jt.setChecked(true);
                     btn1jt.setBackgroundResource(R.drawable.btntgl_style_clicked);
                     price = prices[5];
+                    setTagihanListrik();
                     break;
 
                     default:
@@ -179,6 +211,18 @@ public class ListrikFragment extends Fragment {
             ListrikTagihanFragment listrikTagihanFragment = new ListrikTagihanFragment();
             fragmentTransaction.replace(R.id.content_activity, listrikTagihanFragment,
                     ListrikTagihanFragment.class.getSimpleName()).commit();
+        }
+    };
+
+    private View.OnClickListener lanjutClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), MetodePembayaranActivity.class);
+            intent.putExtra(EXTRA_KEY, 1);
+            intent.putExtra(EXTRA_DETAIL_TEMP, tagihanListrik);
+            Log.e(STATE, "Listrik Fragemnt = " + tagihanListrik.getIdPelanggan());
+            startActivity(intent);
+            getActivity().finish();
         }
     };
 

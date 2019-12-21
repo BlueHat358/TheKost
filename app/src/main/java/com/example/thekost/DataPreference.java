@@ -17,12 +17,11 @@ public class DataPreference {
 
     public void setLogin(String login){
         SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
         editor.putString(LOGIN, login);
         editor.apply();
     }
 
    public String getLogin(){
-        return preferences.getString(LOGIN, "0");
+        return preferences.getString(LOGIN, "1");
    }
 }

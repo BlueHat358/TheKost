@@ -4,8 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class model implements Parcelable {
-    private String name, harga;
-    private int image;
+    private String name, hargaString;
+    private int image, harga;
+
+    public String getHargaString() {
+        return hargaString;
+    }
+
+    public void setHargaString(String hargaString) {
+        this.hargaString = hargaString;
+    }
 
     public String getName() {
         return name;
@@ -15,11 +23,11 @@ public class model implements Parcelable {
         this.name = name;
     }
 
-    public String getHarga() {
+    public int getHarga() {
         return harga;
     }
 
-    public void setHarga(String harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 
@@ -31,6 +39,9 @@ public class model implements Parcelable {
         this.image = image;
     }
 
+    public model() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -39,17 +50,16 @@ public class model implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
-        dest.writeString(this.harga);
+        dest.writeString(this.hargaString);
         dest.writeInt(this.image);
-    }
-
-    public model() {
+        dest.writeInt(this.harga);
     }
 
     protected model(Parcel in) {
         this.name = in.readString();
-        this.harga = in.readString();
+        this.hargaString = in.readString();
         this.image = in.readInt();
+        this.harga = in.readInt();
     }
 
     public static final Creator<model> CREATOR = new Creator<model>() {

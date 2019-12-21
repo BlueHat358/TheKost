@@ -53,7 +53,7 @@ public class LoginActivity1 extends AppCompatActivity {
     private View.OnClickListener login_click = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            dataPreference.setLogin("1");
+            dataPreference.setLogin("0");
 
             Intent intent = new Intent(LoginActivity1.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -11,10 +11,11 @@ import android.util.Log;
 import com.example.thekost.Homepage.HomePageFragment;
 import com.example.thekost.Login.LoginActivity;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
 
-    private DataPreference dataPreference;
-    String login;
+    private String login;
 
     private static final String STATE = "state";
 
@@ -25,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        dataPreference = new DataPreference(this);
+        DataPreference dataPreference;
+
+        dataPreference = new DataPreference(MainActivity.this);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -36,15 +39,18 @@ public class MainActivity extends AppCompatActivity {
 //        fragmentTransaction.replace(R.id.container, homePageFragment,
 //                HomePageFragment.class.getSimpleName()).commit();
 
-        if(login == "1"){
-            HomePageFragment homePageFragment = new HomePageFragment();
-            fragmentTransaction.replace(R.id.container, homePageFragment,
-                    HomePageFragment.class.getSimpleName()).commit();
-        }
-        else{
+        Log.e(STATE, login + "");
+        Log.e(STATE, login.equals("1") + "");
+        Log.e(STATE, login.equals("0") + "");
+
+        if(login.equals("1")){
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
+        } else if (login.equals("0")) {
+            HomePageFragment homePageFragment = new HomePageFragment();
+            fragmentTransaction.replace(R.id.container, homePageFragment,
+                    HomePageFragment.class.getSimpleName()).commit();
         }
     }
 }

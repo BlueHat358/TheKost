@@ -56,7 +56,7 @@ public class DaftarActivity1 extends AppCompatActivity {
     private View.OnClickListener daftar_click = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            dataPreference.setLogin("1");
+            dataPreference.setLogin("0");
 
             Intent intent = new Intent(DaftarActivity1.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
