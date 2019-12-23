@@ -7,6 +7,15 @@ public class history implements Parcelable {
     private String nama, status;
     private int id, harga, diterima, image;
 
+    public history(String nama, String status, int id, int harga, int diterima, int image) {
+        this.nama = nama;
+        this.status = status;
+        this.id = id;
+        this.harga = harga;
+        this.diterima = diterima;
+        this.image = image;
+    }
+
     public String getNama() {
         return nama;
     }

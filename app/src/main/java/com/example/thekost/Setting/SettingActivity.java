@@ -18,7 +18,7 @@ public class SettingActivity extends AppCompatActivity {
 
     DataPreference dataPreference;
 
-    Button signOut;
+    Button signOut, tentangKami, edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,12 @@ public class SettingActivity extends AppCompatActivity {
         dataPreference = new DataPreference(this);
 
         signOut = findViewById(R.id.btn_signOut);
+        tentangKami = findViewById(R.id.btn_tentang_kami);
+        edit = findViewById(R.id.btn_edit_akun);
 
         signOut.setOnClickListener(signOutClicked);
+        tentangKami.setOnClickListener(kamiClicked);
+        edit.setOnClickListener(editClicked);
     }
 
     private View.OnClickListener signOutClicked = new View.OnClickListener() {
@@ -43,6 +47,24 @@ public class SettingActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }
+    };
+
+    private View.OnClickListener kamiClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(SettingActivity.this, TentangKamiActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    };
+
+    private View.OnClickListener editClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(SettingActivity.this, EditAkunActivity.class);
             startActivity(intent);
             finish();
         }

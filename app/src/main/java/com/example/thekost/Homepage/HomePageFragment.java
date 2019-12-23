@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,8 +41,11 @@ public class HomePageFragment extends Fragment {
     ImageView imgHomepage;
     LinearLayout Content;
     ImageButton imgBtn_galon, setting, imgBtn_gas, imgBtn_listrik;
+    Button pembayaran;
 
     Animation fromBottom;
+
+    private FragmentTransaction fragmentTransaction;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -55,6 +61,9 @@ public class HomePageFragment extends Fragment {
 
         fromBottom = AnimationUtils.loadAnimation(getContext(), R.anim.frombottom);
 
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+
         imgHomepage = rootView.findViewById(R.id.img_homepage);
         Content = rootView.findViewById(R.id.content);
         imgHomepage = rootView.findViewById(R.id.img_homepage);
@@ -62,6 +71,7 @@ public class HomePageFragment extends Fragment {
         imgBtn_galon = rootView.findViewById(R.id.imgBtnGalon);
         imgBtn_gas = rootView.findViewById(R.id.imgBtnGas);
         imgBtn_listrik = rootView.findViewById(R.id.imgBtnListrik);
+        pembayaran = rootView.findViewById(R.id.btn_pembayaran);
 
         imgHomepage.animate().translationY(-2800).setDuration(800).setStartDelay(1000);
 
@@ -71,6 +81,7 @@ public class HomePageFragment extends Fragment {
         imgBtn_galon.setOnClickListener(galonClicked);
         imgBtn_gas.setOnClickListener(gasClicked);
         imgBtn_listrik.setOnClickListener(listrikClicked);
+        pembayaran.setOnClickListener(pembayaranClicked);
 
         return rootView;
     }
@@ -107,6 +118,16 @@ public class HomePageFragment extends Fragment {
             Intent intent = new Intent(getActivity(), ContentActivity.class);
             intent.putExtra(HOMEFRAGMENT, 3);
             startActivity(intent);
+        }
+    };
+
+    private View.OnClickListener pembayaranClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            PembayaranFragment pembayaranFragment = new PembayaranFragment();
+            fragmentTransaction.replace(R.id.container, pembayaranFragment,
+                    PembayaranFragment.class.getSimpleName()).commit();
+
         }
     };
 

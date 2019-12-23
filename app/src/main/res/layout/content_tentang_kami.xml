@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="15dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_tentang_kami"
+            android:background="@color/color_white"
+            android:src="@drawable/nawan"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_nama_tentang_kami"
+                android:text="Kurniawan Dwi Waestaputra"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:text="18.11.1896"
+                android:id="@+id/tv_nim_tentang_kami"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

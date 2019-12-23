@@ -96,6 +96,7 @@ public class ListrikTagihanFragment extends Fragment {
     private View.OnClickListener bayarClicked = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            setTagihanListrik();
             Intent intent = new Intent(getActivity(), MetodePembayaranActivity.class);
             intent.putExtra(EXTRA_KEY, 1);
             intent.putExtra(EXTRA_DETAIL_TEMP, tagihanListrik);
