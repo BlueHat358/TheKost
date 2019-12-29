@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.thekost.Model.model;
 import com.example.thekost.R;
 import com.example.thekost.Utils.BtnRecyclerListener;
+import com.example.thekost.Utils.getFormatRupiah;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -25,10 +26,12 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ListView
     private ArrayList<model> model_;
     private Context context;
     private BtnRecyclerListener listener;
+    getFormatRupiah formatRupiah;
 
     public ContentAdapter(ArrayList<model> list, BtnRecyclerListener listener){
         this.model_ = list;
         this.listener = listener;
+        formatRupiah = new getFormatRupiah();
     }
 
     @NonNull
@@ -47,7 +50,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ListView
                 .into(holder.image);
         //Picasso.with(holder.itemView.getContext()).load(list.getImage()).into(holder.image);
         holder.tv_name.setText(list.getName());
-        holder.btn_Content.setText(list.getHargaString());
+        holder.btn_Content.setText(formatRupiah.getFormat(list.getHarga()));
     }
 
     @Override

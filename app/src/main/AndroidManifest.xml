@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Setting.TentangKamiActivity"></activity>
+        <activity android:name=".Pembayaran.MetodeTopUpActivity"></activity>
+        <activity android:name=".Setting.TentangKamiActivity" />
         <activity android:name=".Setting.EditAkunActivity" />
         <activity android:name=".Pembayaran.DetailPembayaranActivity" />
         <activity android:name=".Pembayaran.MetodePembayaranActivity" />

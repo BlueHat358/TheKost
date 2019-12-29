@@ -123,6 +123,7 @@ import com.example.thekost.Model.history;
 import com.example.thekost.Model.model;
 import com.example.thekost.R;
 import com.example.thekost.Utils.BtnRecyclerListener;
+import com.example.thekost.Utils.getFormatRupiah;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -132,10 +133,12 @@ import static com.example.thekost.Utils.PublicClassString.STATE;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private ArrayList<history> history_;
     private BtnRecyclerListener listener;
+    getFormatRupiah formatRupiah;
 
     public HistoryAdapter(ArrayList<history> list, BtnRecyclerListener listener){
         this.history_ = list;
         this.listener = listener;
+        formatRupiah = new getFormatRupiah();
     }
 
     public HistoryAdapter(){
@@ -174,12 +177,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                 .load(list.getImage())
                 .into(holder.image);
         holder.nama.setText(list.getNama());
-        holder.harga.setText("Rp. " + list.getHarga());
+        holder.harga.setText(formatRupiah.getFormat(list.getHarga()));
         holder.status.setText(list.getStatus());
 
         if(list.getDiterima() == 1){
             holder.diterima.setBackgroundResource(R.drawable.diterima_clicked);
-            holder.diterima.setTextColor(R.color.color_black);
+            holder.diterima.setTextColor(R.color.color_white);
             holder.diterima.setEnabled(false);
         }
     }

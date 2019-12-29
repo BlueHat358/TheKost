@@ -10,4 +10,6 @@ public class PublicClassString {
     public static final String EXTRA_PRICE = "price";
     public static final String EXTRA_NAMA_ITEM = "nama_item";
     public static final String EXTRA_KEY = "key";
+    public static final String EXTRA_KEYS= "keys";
+    public static final String EXTRA_TOPUP = "topup";
 }

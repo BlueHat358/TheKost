@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +18,9 @@ import android.widget.TextView;
 import com.example.thekost.Model.model;
 import com.example.thekost.Model.tagihan_listrik;
 import com.example.thekost.R;
+import com.example.thekost.Utils.getFormatRupiah;
 
-import static com.example.thekost.Utils.PublicClassString.EXTRA_DETAIL;
-import static com.example.thekost.Utils.PublicClassString.EXTRA_DETAIL_FRAGMENT;
-import static com.example.thekost.Utils.PublicClassString.EXTRA_DETAIL_TEMP;
-import static com.example.thekost.Utils.PublicClassString.EXTRA_KEY;
-import static com.example.thekost.Utils.PublicClassString.EXTRA_TITLE;
+import static com.example.thekost.Utils.PublicClassString.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +51,8 @@ public class MetodeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_metode, container, false);
+
+        getFormatRupiah formatRupiah = new getFormatRupiah();
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -88,7 +88,7 @@ public class MetodeFragment extends Fragment {
         }
 
         tv_nama.setText(nama);
-        tv_harga.setText("Rp. " + harga);
+        tv_harga.setText(formatRupiah.getFormat(harga));
         imgItem.setImageResource(img_item);
 
         return view;
@@ -98,9 +98,11 @@ public class MetodeFragment extends Fragment {
         if(key == 0){
             bundle.putParcelable(EXTRA_DETAIL_FRAGMENT, m);
             bundle.putInt(EXTRA_KEY, 0);
+            bundle.putInt(EXTRA_KEYS, 0);
         }else{
             bundle.putParcelable(EXTRA_DETAIL_FRAGMENT, tagihanListrik);
             bundle.putInt(EXTRA_KEY, 1);
+            bundle.putInt(EXTRA_KEYS, 0);
         }
     }
 
@@ -134,6 +136,9 @@ public class MetodeFragment extends Fragment {
                     break;
                 case R.id.rl_thekost:
                     TheKostCashFragment theKostCashFragment = new TheKostCashFragment();
+                    keys(key);
+                    Log.e("KEY Metdode = ", key+"");
+                    theKostCashFragment.setArguments(bundle);
                     fragmentTransaction.replace(R.id.metode_activity, theKostCashFragment,
                             TheKostCashFragment.class.getSimpleName()).commit();
                     break;

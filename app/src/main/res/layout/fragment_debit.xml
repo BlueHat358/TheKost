@@ -142,6 +142,7 @@
                 android:background="@color/color_ungu_name"
                 android:textColor="@color/color_white"
                 android:textSize="18sp"
+                android:id="@+id/btn_lanjut_debit"
                 />
         </LinearLayout>
     </LinearLayout>

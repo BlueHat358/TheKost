@@ -2,9 +2,11 @@ package com.example.thekost.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,12 +17,18 @@ import com.example.thekost.LupaPassword.LupaPassActivity;
 import com.example.thekost.MainActivity;
 import com.example.thekost.DataPreference;
 import com.example.thekost.R;
+import com.example.thekost.db.KostCash.TopUpHelper;
+
+import static com.example.thekost.Utils.PublicClassString.STATE;
+import static com.example.thekost.db.KostCash.DataBaseContract.TopUpColumn.BONUS;
+import static com.example.thekost.db.KostCash.DataBaseContract.TopUpColumn.NOMINAL;
 
 public class LoginActivity1 extends AppCompatActivity {
 
     Button lupa_pass, daftar_sekarang, login;
 
     private DataPreference dataPreference;
+    private TopUpHelper topUpHelper;
 
     private ImageView back;
 
@@ -32,6 +40,7 @@ public class LoginActivity1 extends AppCompatActivity {
         getSupportActionBar().hide();
 
         dataPreference = new DataPreference(this);
+        topUpHelper = TopUpHelper.getINSTANCE(this);
 
         daftar_sekarang = findViewById(R.id.btn_daftar_sekarang_loginActivity);
         lupa_pass = findViewById(R.id.btn_lupa_pass);
@@ -54,6 +63,17 @@ public class LoginActivity1 extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             dataPreference.setLogin("0");
+
+            topUpHelper.open();
+            ContentValues values = new ContentValues();
+            values.put(NOMINAL, 0);
+            values.put(BONUS, 0);
+            long result = topUpHelper.insert(values);
+            if (result > 0)
+                Log.e(STATE, "onClick: " + "Berhasil Insert Database");
+            else
+                Log.e(STATE, "onClick: " + "Gagal Insert Database");
+            topUpHelper.close();
 
             Intent intent = new Intent(LoginActivity1.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

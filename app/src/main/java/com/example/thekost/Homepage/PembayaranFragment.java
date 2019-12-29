@@ -1,6 +1,7 @@
 package com.example.thekost.Homepage;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -72,13 +73,15 @@ public class PembayaranFragment extends Fragment implements LoadHistoryCallback 
         home.setOnClickListener(homeClicked);
         setting.setOnClickListener(settingClicked);
 
+        historyHelper = HistoryHelper.getINSTANCE(getActivity());
+        //historyHelper.open();
+
         rvPembayaran.setHasFixedSize(true);
 
         bg.animate().translationY(-2800);
 
-        historyHelper = HistoryHelper.getINSTANCE(getContext());
-
-        new LoadHistoryAsync(historyHelper, this).execute();
+        new LoadHistoryAsync(historyHelper, this, getActivity()).execute();
+        //historyHelper.close();
 
         return view;
     }
@@ -88,6 +91,8 @@ public class PembayaranFragment extends Fragment implements LoadHistoryCallback 
         final HistoryAdapter historyAdapter = new HistoryAdapter(history_, new BtnRecyclerListener() {
             @Override
             public void onClick(View view, int position) {
+                //historyHelper = HistoryHelper.getINSTANCE(getActivity());
+                historyHelper.open();
                 Log.d(STATE, "onClick: " + "Button Diterima is Clicked " + position);
 
                 ContentValues values = new ContentValues();
@@ -95,6 +100,7 @@ public class PembayaranFragment extends Fragment implements LoadHistoryCallback 
                 values.put(STATUS, "Telah Dibayar");
                 int id = history_.get(position).getId();
                 historyHelper.update(Integer.toString(id), values);
+                historyHelper.close();
 
                 Toast.makeText(getContext(), "Pesanan Telah Diterima", Toast.LENGTH_LONG).show();
 
@@ -116,16 +122,24 @@ public class PembayaranFragment extends Fragment implements LoadHistoryCallback 
 
         private final WeakReference<HistoryHelper> weakHistoryHelper;
         private final WeakReference<LoadHistoryCallback> weakCallback;
+        HistoryHelper historyHelper1;
+        ArrayList<history> list;
 
-        private LoadHistoryAsync(HistoryHelper historyHelper, LoadHistoryCallback callback) {
+        private LoadHistoryAsync(HistoryHelper historyHelper, LoadHistoryCallback callback, Context context) {
             weakHistoryHelper = new WeakReference<>(historyHelper);
             weakCallback = new WeakReference<>(callback);
+            historyHelper1 = HistoryHelper.getINSTANCE(context);
+            //historyHelper.open();
         }
 
         @Override
         protected ArrayList<history> doInBackground(Void... voids) {
+            list = new ArrayList<>();
+            historyHelper1.open();
             Cursor cursor = weakHistoryHelper.get().queryAll();
-            return MappingHelper.mapCursorToArrayList(cursor);
+            list = MappingHelper.mapCursorToArrayList(cursor);
+            historyHelper1.close();
+            return list;
         }
 
         @Override

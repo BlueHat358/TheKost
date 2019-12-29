@@ -2,6 +2,7 @@ package com.example.thekost.Homepage;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,20 +20,24 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.thekost.Content.ContentActivity;
 import com.example.thekost.DataPreference;
 import com.example.thekost.MainActivity;
 import com.example.thekost.Model.model;
 import com.example.thekost.Pembayaran.MetodePembayaranActivity;
+import com.example.thekost.Pembayaran.MetodeTopUpActivity;
 import com.example.thekost.R;
 import com.example.thekost.Setting.SettingActivity;
+import com.example.thekost.db.KostCash.TopUpHelper;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import static com.example.thekost.Utils.PublicClassString.HOMEFRAGMENT;
 import static com.example.thekost.Utils.PublicClassString.STATE;
+import static com.example.thekost.db.KostCash.DataBaseContract.TopUpColumn.NOMINAL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,8 +48,11 @@ public class HomePageFragment extends Fragment {
     LinearLayout Content;
     ImageButton imgBtn_galon, setting, imgBtn_gas, imgBtn_listrik;
     Button pembayaran, topup;
+    TextView tvSaldo;
 
     Animation fromBottom;
+
+    TopUpHelper topUpHelper;
 
     private FragmentTransaction fragmentTransaction;
 
@@ -65,6 +73,8 @@ public class HomePageFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
+        topUpHelper = TopUpHelper.getINSTANCE(getActivity());
+
         imgHomepage = rootView.findViewById(R.id.img_homepage);
         Content = rootView.findViewById(R.id.content);
         imgHomepage = rootView.findViewById(R.id.img_homepage);
@@ -74,6 +84,7 @@ public class HomePageFragment extends Fragment {
         imgBtn_listrik = rootView.findViewById(R.id.imgBtnListrik);
         pembayaran = rootView.findViewById(R.id.btn_pembayaran);
         topup = rootView.findViewById(R.id.btn_topUp);
+        tvSaldo = rootView.findViewById(R.id.tv_saldo_homepage);
 
         imgHomepage.animate().translationY(-2800).setDuration(800).setStartDelay(1000);
 
@@ -86,7 +97,22 @@ public class HomePageFragment extends Fragment {
         pembayaran.setOnClickListener(pembayaranClicked);
         topup.setOnClickListener(topupclick);
 
+        tvSaldo.setText("Kost Cash\n" + "Rp. " + getNominal());
+
         return rootView;
+    }
+
+    private int getNominal(){
+        topUpHelper.open();
+        int nominal = 0;
+
+        Cursor cursor = topUpHelper.queryAll();
+        cursor.moveToNext();
+        nominal = cursor.getInt(cursor.getColumnIndexOrThrow(NOMINAL));
+
+        topUpHelper.close();
+
+        return nominal;
     }
 
     private View.OnClickListener settingClicked = new View.OnClickListener() {
@@ -137,7 +163,7 @@ public class HomePageFragment extends Fragment {
     private View.OnClickListener topupclick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getContext(), MetodePembayaranActivity.class);
+            Intent intent = new Intent(getContext(), MetodeTopUpActivity.class);
             startActivity(intent);
         }
     };

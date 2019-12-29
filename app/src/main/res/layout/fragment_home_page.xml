@@ -108,12 +108,23 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:orientation="vertical"
                         >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Kost Cash"
-                            android:id="@+id/tv_kost_cash"
+                            android:textSize="18sp"
+                            android:textColor="@color/color_cash"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rp. 100000"
+                            android:id="@+id/tv_saldo_homepage"
+                            android:textSize="15sp"
+                            android:textColor="@color/color_white"
                             />
                     </LinearLayout>
                     <LinearLayout
