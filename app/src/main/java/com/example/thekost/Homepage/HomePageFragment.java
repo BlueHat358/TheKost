@@ -24,6 +24,7 @@ import com.example.thekost.Content.ContentActivity;
 import com.example.thekost.DataPreference;
 import com.example.thekost.MainActivity;
 import com.example.thekost.Model.model;
+import com.example.thekost.Pembayaran.MetodePembayaranActivity;
 import com.example.thekost.R;
 import com.example.thekost.Setting.SettingActivity;
 
@@ -41,7 +42,7 @@ public class HomePageFragment extends Fragment {
     ImageView imgHomepage;
     LinearLayout Content;
     ImageButton imgBtn_galon, setting, imgBtn_gas, imgBtn_listrik;
-    Button pembayaran;
+    Button pembayaran, topup;
 
     Animation fromBottom;
 
@@ -72,6 +73,7 @@ public class HomePageFragment extends Fragment {
         imgBtn_gas = rootView.findViewById(R.id.imgBtnGas);
         imgBtn_listrik = rootView.findViewById(R.id.imgBtnListrik);
         pembayaran = rootView.findViewById(R.id.btn_pembayaran);
+        topup = rootView.findViewById(R.id.btn_topUp);
 
         imgHomepage.animate().translationY(-2800).setDuration(800).setStartDelay(1000);
 
@@ -82,6 +84,7 @@ public class HomePageFragment extends Fragment {
         imgBtn_gas.setOnClickListener(gasClicked);
         imgBtn_listrik.setOnClickListener(listrikClicked);
         pembayaran.setOnClickListener(pembayaranClicked);
+        topup.setOnClickListener(topupclick);
 
         return rootView;
     }
@@ -128,6 +131,14 @@ public class HomePageFragment extends Fragment {
             fragmentTransaction.replace(R.id.container, pembayaranFragment,
                     PembayaranFragment.class.getSimpleName()).commit();
 
+        }
+    };
+
+    private View.OnClickListener topupclick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getContext(), MetodePembayaranActivity.class);
+            startActivity(intent);
         }
     };
 
